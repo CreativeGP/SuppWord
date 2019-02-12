@@ -31,7 +31,7 @@ class Memoize:
             #Warning: You may wish to do a deepcopy here if returning objects
         return self.memo[args]
 
-@Memoize
+#@Memoize
 def is_supp(s):
     l = len(s)
     res = 0 if contains(dic[l], s) else 1
@@ -39,6 +39,7 @@ def is_supp(s):
     if LOG:
         if res == 0:
             print("✔　"+s)
+            pass
         else:
             print("✗ "+s)
 
@@ -49,7 +50,7 @@ def is_supp(s):
         return res + is_supp(s[0:l-1]) + is_supp(s[1:l])
 
 dic = []
-LOG = False
+LOG = True
 
 # load dictionary
 for i in [0,1,2,3,4,5,6,7,8,9]:
@@ -60,7 +61,7 @@ for i in [0,1,2,3,4,5,6,7,8,9]:
     except OSError:
         dic.append([])
 
-# target = 'わんだあどりいむ'
-for target in dic[7]:
-    if is_supp(target) == 2: print(target)
-#    print("\n\n")
+target = 'がいしようしや'
+# for target in dic[9]:
+if is_supp(target) == 2: print(target)
+print("\n\n")
